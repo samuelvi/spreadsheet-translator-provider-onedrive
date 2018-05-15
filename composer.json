@@ -1,0 +1,23 @@
+{
+    "name": "atico/spreadsheet-translator-provider-onedrive",
+    "license": "MIT",
+    "type": "library",
+    "description": "Spreadsheet Translator - One Drive Provider with no authentication",
+    "autoload": {
+        "psr-4": {
+            "Atico\\SpreadsheetTranslator\\Provider\\OneDrive\\": "./src"
+        }
+    },
+    "repositories": [{
+        "type": "path",
+        "url": "../../Core",
+        "options": {
+            "symlink": true
+        }
+    }],
+    "require": {
+        "atico/spreadsheet-translator-core": "^1.0",
+        "php": ">=5.5.9",
+        "guzzlehttp/guzzle": "6.2.2"
+    }
+}
