@@ -11,28 +11,27 @@
 
 namespace Atico\SpreadsheetTranslator\Provider\OneDrive;
 
+use GuzzleHttp\Client;
 use Atico\SpreadsheetTranslator\Core\Configuration\Configuration;
 use Atico\SpreadsheetTranslator\Core\Resource\Resource;
-use GuzzleHttp;
 
 use Atico\SpreadsheetTranslator\Core\Provider\ProviderInterface;
 
 class OneDriveProvider implements ProviderInterface
 {
-    /** @var OneDriveConfigurationManager $configuration */
-    protected $configuration;
+    protected OneDriveConfigurationManager $configuration;
 
     public function __construct(Configuration $configuration)
     {
         $this->configuration = new OneDriveConfigurationManager($configuration);
     }
 
-    public function getProvider()
+    public function getProvider(): string
     {
         return 'onedrive';
     }
 
-   public function handleSourceResource()
+   public function handleSourceResource(): Resource
     {
         $url = str_replace('/embed', '/download', $this->configuration->getSourceResource());
         $tempLocalResource = $this->configuration->getTempLocalSourceFile();
@@ -40,7 +39,7 @@ class OneDriveProvider implements ProviderInterface
             'save_to' => $tempLocalResource,
         ];
 
-        $guzzleHttpClient = new GuzzleHttp\Client();
+        $guzzleHttpClient = new Client();
         $guzzleHttpClient->get($url, $options);
         return new Resource($tempLocalResource, $this->configuration->getFormat());
     }

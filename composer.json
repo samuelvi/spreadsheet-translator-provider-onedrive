@@ -1,5 +1,5 @@
 {
-    "name": "atico/spreadsheet-translator-provider-onedrive",
+    "name": "samuelvi/spreadsheet-translator-provider-onedrive",
     "license": "MIT",
     "type": "library",
     "description": "Spreadsheet Translator - One Drive Provider with no authentication",
@@ -16,8 +16,12 @@
         }
     }],
     "require": {
-        "atico/spreadsheet-translator-core": "^1.0",
-        "php": ">=5.5.9",
-        "guzzlehttp/guzzle": "6.2.2"
+        "samuelvi/spreadsheet-translator-core": "^1.0|^2.0|^8.0",
+        "php": ">=8.1",
+        "guzzlehttp/guzzle": "^7.7"
+    },
+    "require-dev": {
+        "rector/jack": "^0.2.9",
+        "rector/rector": "^2.1"
     }
 }
