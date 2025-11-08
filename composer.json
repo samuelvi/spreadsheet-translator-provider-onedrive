@@ -8,20 +8,24 @@
             "Atico\\SpreadsheetTranslator\\Provider\\OneDrive\\": "./src"
         }
     },
-    "repositories": [{
-        "type": "path",
-        "url": "../../Core",
-        "options": {
-            "symlink": true
+    "autoload-dev": {
+        "psr-4": {
+            "Atico\\SpreadsheetTranslator\\Provider\\OneDrive\\Tests\\": "./tests"
         }
-    }],
+    },
     "require": {
-        "samuelvi/spreadsheet-translator-core": "^1.0|^2.0|^8.0",
-        "php": ">=8.1",
-        "guzzlehttp/guzzle": "^7.7"
+        "samuelvi/spreadsheet-translator-core": "^8.0",
+        "php": ">=8.4",
+        "guzzlehttp/guzzle": "^7.9"
     },
     "require-dev": {
         "rector/jack": "^0.2.9",
-        "rector/rector": "^2.1"
+        "rector/rector": "^2.1",
+        "phpunit/phpunit": "^11.5"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "rector": "rector process",
+        "rector:dry": "rector process --dry-run"
     }
 }
